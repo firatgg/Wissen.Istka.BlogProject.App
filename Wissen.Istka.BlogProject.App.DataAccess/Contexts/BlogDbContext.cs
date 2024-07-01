@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wissen.Istka.BlogProject.App.DataAccess.Identity;
 using Wissen.Istka.BlogProject.App.Entity.Entities;
 
 namespace Wissen.Istka.BlogProject.App.DataAccess.Contexts
 {
-    public class BlogDbContext : IdentityDbContext
+    public class BlogDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options) { }
 
