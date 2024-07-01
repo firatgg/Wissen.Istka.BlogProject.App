@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Wissen.Istka.BlogProject.App.DataAccess.Contexts;
+using Wissen.Istka.BlogProject.App.Service.Extensions;
 
 namespace Wissen.Istka.BlogProject.App.WebMvcUI
 {
@@ -7,12 +8,16 @@ namespace Wissen.Istka.BlogProject.App.WebMvcUI
     {
         public static void Main(string[] args)
         {
+
+           
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
             builder.Services.AddDbContext<BlogDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnStr")));
+            builder.Services.AddExtensions();
+
 
 
             var app = builder.Build();
